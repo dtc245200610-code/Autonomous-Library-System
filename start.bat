@@ -24,8 +24,9 @@ echo    HỆ THỐNG ĐÃ SẴN SÀNG! TRUY CẬP CÁC DỊCH VỤ DƯỚI ĐÂY
 echo ==============================================================================
 echo  1. Giao Diện Quản Lý Thư Viện: http://localhost:8080/
 echo  2. Trang Quản Trị pgAdmin 4:   http://localhost:8080/pgadmin/ (hoặc port 5050)
-echo     - Tài khoản: admin@library.com
-echo     - Mật khẩu:  LibraryAdmin@2026!
+echo     - Tài khoản pgAdmin:  admin@library.com
+echo     - Mật khẩu pgAdmin:   Athena@2026
+echo     - Mật khẩu Database (lib_admin): Athena@2026
 echo  3. Hệ Thống Giám Sát Grafana:   http://localhost:8080/grafana/ (hoặc port 3000)
 echo     - Tài khoản: admin
 echo     - Mật khẩu:  admin
