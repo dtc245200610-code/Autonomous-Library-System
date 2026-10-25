@@ -141,4 +141,4 @@ GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA public TO lib_app;
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO lib_app;
 -- Ngăn lib_app xóa cấu trúc bảng hoặc can thiệp quản trị
 REVOKE CREATE ON SCHEMA public FROM lib_app;
-REVOKE DROP, TRUNCATE ON ALL TABLES IN SCHEMA public FROM lib_app;
+REVOKE TRUNCATE ON ALL TABLES IN SCHEMA public FROM lib_app;

@@ -72,9 +72,8 @@ services:
       postgres:
         condition: service_healthy
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@library.local}
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@library.com}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-LibraryAdmin@2026!}
-      PGADMIN_CONFIG_SCRIPT_NAME: '/pgadmin'
       PGADMIN_CONFIG_SERVER_MODE: 'False'
     volumes:
       - ./pgadmin/servers.json:/pgadmin4/servers.json:ro
@@ -127,7 +126,7 @@ services:
       - '--web.route-prefix=/prometheus'
       - '--web.external-url=http://localhost/prometheus/'
     ports:
-      - "9090:9090"
+      - "9091:9090"
     networks:
       - library_frontend
       - library_monitor
@@ -152,10 +151,10 @@ services:
     volumes:
       - ./monitoring/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources:ro
       - ./monitoring/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards:ro
-      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards/json:ro
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards:ro
       - grafana_data:/var/lib/grafana
     ports:
-      - "3000:3000"
+      - "3001:3000"
     networks:
       - library_frontend
       - library_monitor
@@ -167,6 +166,7 @@ services:
   loki:
     image: grafana/loki:latest
     container_name: library_loki
+    user: "root"
     restart: unless-stopped
     volumes:
       - ./monitoring/loki/loki-config.yaml:/etc/loki/local-config.yaml:ro
