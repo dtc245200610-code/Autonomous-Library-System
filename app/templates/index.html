@@ -55,31 +55,11 @@
       <a href="http://localhost:3001/" target="_blank" class="btn-nav-portal btn-portal-grafana" title="Mở Dashboard giám sát Grafana (Port 3001)">
         <i class="fa-solid fa-chart-line"></i> Grafana (3001)
       </a>
-      <button class="btn-secondary" style="padding: 7px 12px; font-size: 12px;" onclick="openModal('modalCriteria')">
-        <i class="fa-solid fa-clipboard-check" style="color:#38bdf8;"></i> Tiêu Chí Chấm Thi
-      </button>
     </div>
   </header>
 
   <!-- ================= MAIN CONTAINER ================= -->
   <main class="main-wrapper">
-
-    <!-- Rubric Banner -->
-    <section class="rubric-strip">
-      <div class="rubric-title">
-        <i class="fa-solid fa-award" style="color:#f59e0b;"></i>
-        <span>ĐÁP ỨNG 7 TIÊU CHÍ ĐÁNH GIÁ (10/10 ĐIỂM):</span>
-      </div>
-      <div class="rubric-items">
-        <span class="rubric-tag"><i class="fa-brands fa-github"></i> 1. GitHub (3+ Commits)</span>
-        <span class="rubric-tag"><i class="fa-solid fa-server"></i> 2. PostgreSQL + pgAdmin</span>
-        <span class="rubric-tag"><i class="fa-solid fa-network-wired"></i> 3. Nginx Reverse Proxy</span>
-        <span class="rubric-tag"><i class="fa-solid fa-gauge-high"></i> 4. Prometheus + Grafana</span>
-        <span class="rubric-tag"><i class="fa-solid fa-terminal"></i> 5. Loki + LogQL</span>
-        <span class="rubric-tag"><i class="fa-solid fa-lock"></i> 6. Security Hardening</span>
-        <span class="rubric-tag"><i class="fa-solid fa-cubes"></i> 7. Docker Compose Ready</span>
-      </div>
-    </section>
 
     <!-- KPI Bento Grid -->
     <section class="kpi-grid">
@@ -375,69 +355,6 @@
           <button type="submit" class="btn-primary" style="background:#059669;"><i class="fa-solid fa-check"></i> Kích Hoạt Thẻ</button>
         </div>
       </form>
-    </div>
-  </div>
-
-  <!-- ================= MODAL: CRITERIA CHEAT SHEET (CHO GIẢNG VIÊN) ================= -->
-  <div class="modal-overlay" id="modalCriteria">
-    <div class="modal-box" style="max-width: 750px;">
-      <div class="modal-header">
-        <h3><i class="fa-solid fa-clipboard-check" style="color:#38bdf8;"></i> Bảng Đối Chiếu 7 Tiêu Chí Đánh Giá (Điểm 10/10)</h3>
-        <button class="modal-close-btn" onclick="closeModal('modalCriteria')">&times;</button>
-      </div>
-      <div class="modal-body" style="font-size: 13px; line-height: 1.6; color: #cbd5e1;">
-        
-        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:12px; margin-bottom:10px;">
-          <h4 style="color:#38bdf8; margin-bottom:4px;"><i class="fa-brands fa-github"></i> 1. Quản lý mã nguồn trên GitHub (1.5 điểm)</h4>
-          <p>• Đầy đủ mã nguồn, cấu hình Docker, Nginx, Prometheus, Grafana, Loki.</p>
-          <p>• Có sẵn script <code>setup_git.bat</code> tạo tự động 3 commit chuẩn ý nghĩa (Core, DevOps, Monitoring).</p>
-          <p>• README.md chi tiết hướng dẫn chạy 1 lệnh và giải thích kiến trúc.</p>
-        </div>
-
-        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:12px; margin-bottom:10px;">
-          <h4 style="color:#38bdf8; margin-bottom:4px;"><i class="fa-solid fa-database"></i> 2. Triển khai ứng dụng + Database (1.5 điểm)</h4>
-          <p>• <strong>PostgreSQL 16</strong> chạy ổn định, có sẵn <code>init.sql</code> nạp sẵn 8 sách, 5 độc giả, 5 phiếu mượn.</p>
-          <p>• <strong>pgAdmin 4</strong> được cấu hình sẵn tự động nhận diện DB server qua file <code>servers.json</code>, không cần nhập thủ công.</p>
-        </div>
-
-        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:12px; margin-bottom:10px;">
-          <h4 style="color:#38bdf8; margin-bottom:4px;"><i class="fa-solid fa-network-wired"></i> 3. Nginx Reverse Proxy (1.5 điểm)</h4>
-          <p>• Cổng 80 duy nhất làm Gateway điều hướng toàn bộ hệ thống (Web: <code>/</code>, pgAdmin: <code>/pgadmin/</code>, Grafana: <code>/grafana/</code>).</p>
-          <p>• Tích hợp đầy đủ OWASP Security Headers (X-Frame-Options, CSP, HSTS ready, nosniff, Rate Limiting).</p>
-        </div>
-
-        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:12px; margin-bottom:10px;">
-          <h4 style="color:#38bdf8; margin-bottom:4px;"><i class="fa-solid fa-chart-line"></i> 4. Hệ thống giám sát (Prometheus + Grafana) (1.5 điểm)</h4>
-          <p>• Prometheus tự động scrape endpoint <code>/metrics</code> từ Web App (HTTP requests, latency, active loans, total books).</p>
-          <p>• Grafana tự động nạp sẵn Dashboard JSON trực quan hóa hiệu năng container và hoạt động thư viện.</p>
-        </div>
-
-        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:12px; margin-bottom:10px;">
-          <h4 style="color:#38bdf8; margin-bottom:4px;"><i class="fa-solid fa-terminal"></i> 5. Hệ thống log tập trung (Loki + Promtail) (1.5 điểm)</h4>
-          <p>• Promtail thu thập log container thời gian thực và đẩy vào Loki.</p>
-          <p>• <strong>3 Query LogQL cơ bản chuẩn bị sẵn:</strong></p>
-          <code style="display:block; background:#070a12; padding:6px; border-radius:4px; margin:4px 0; color:#38bdf8;">1. {job="library_app"} |= "BORROW_SUCCESS"</code>
-          <code style="display:block; background:#070a12; padding:6px; border-radius:4px; margin:4px 0; color:#38bdf8;">2. {job="library_app"} | json | level="ERROR"</code>
-          <code style="display:block; background:#070a12; padding:6px; border-radius:4px; margin:4px 0; color:#38bdf8;">3. rate({job="library_nginx"}[1m])</code>
-        </div>
-
-        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:12px; margin-bottom:10px;">
-          <h4 style="color:#38bdf8; margin-bottom:4px;"><i class="fa-solid fa-shield-halved"></i> 6. Hardening hệ thống (1.5 điểm)</h4>
-          <p>• <strong>Non-root container:</strong> Web App chạy dưới UID 10001 (appuser).</p>
-          <p>• <strong>Network Isolation:</strong> Tách biệt 3 subnet (frontend_net, backend_net, monitor_net). PostgreSQL KHÔNG publish port ra ngoài host.</p>
-          <p>• <strong>Database Least Privilege:</strong> Ứng dụng chỉ dùng tài khoản <code>lib_app</code> (SELECT/INSERT/UPDATE, cấm DROP/ALTER).</p>
-          <p>• <strong>Mật khẩu mạnh & Secret:</strong> Quản lý toàn bộ qua biến môi trường <code>.env</code> bí mật.</p>
-        </div>
-
-        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:8px; padding:12px;">
-          <h4 style="color:#38bdf8; margin-bottom:4px;"><i class="fa-solid fa-cubes"></i> 7. Tổng thể & Trình bày (1.0 điểm)</h4>
-          <p>• Khởi chạy toàn bộ hệ thống bằng 1 lệnh duy nhất: <code>docker compose up -d</code> hoặc file <code>start.bat</code>.</p>
-        </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-primary" onclick="closeModal('modalCriteria')">Đã Hiểu</button>
-      </div>
     </div>
   </div>
 
